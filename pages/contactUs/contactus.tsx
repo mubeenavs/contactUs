@@ -7,6 +7,7 @@ import useSupportService from './services/supportService';
 import axios from 'axios';
 import Image from 'next/image';
 import verifyImg from '../../themes/images/verify.svg';
+import alert from '../../themes/images/alert.svg';
 
 
 export default function ContactUs() {
@@ -187,7 +188,7 @@ export default function ContactUs() {
           <div className="d-center text-center flex-column">
             <div className="confirmation-img">
               <Image
-                src={verifyImg}
+                src={alert}
                 alt="confirmationimg"
                 className="image-box contain-img"
               />
