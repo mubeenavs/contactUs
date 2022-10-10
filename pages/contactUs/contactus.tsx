@@ -17,6 +17,11 @@ export default function ContactUs() {
   const [ResetConfirmshow, setResetConfirmShow] = useState(false);
   const ResetConfirmhandleClose = () => setResetConfirmShow(false);
   const ResetConfirmhandleShow = () => setResetConfirmShow(true);
+  const[ErrorConfirmShow,setErrorConfirmShow]=useState(false);
+  const ErrorConfirmhandleClose = () => setErrorConfirmShow(false);
+  const ErrorConfirmhandleShow = () => setErrorConfirmShow(true);
+
+
   // const supportService = useSupportService();
   const props= {
     email: email,
@@ -31,8 +36,8 @@ export default function ContactUs() {
               ResetConfirmhandleShow();
             })
             .catch(error => {
-                // if (error.response.status !== 422) throw error
-                // setErrors(Object.values(error.response.data.errors).flat())
+              console.log(error.response.data.error)
+              ErrorConfirmhandleShow();
             })
     // supportService
     //   .sendContactDetailsForEnquiry(email, phone, address, comment).then((response) => {
@@ -169,6 +174,32 @@ export default function ContactUs() {
             </p>
           </div>
         </Modal.Body>
+      </Modal>
+      <Modal
+      show={ErrorConfirmShow}
+      onHide={ErrorConfirmhandleClose}
+        backdrop="static"
+        keyboard={false}
+        centered
+        className="popup-modal-sm peg-modal">
+       <Modal.Header closeButton> </Modal.Header>
+        <Modal.Body>
+          <div className="d-center text-center flex-column">
+            <div className="confirmation-img">
+              <Image
+                src={verifyImg}
+                alt="confirmationimg"
+                className="image-box contain-img"
+              />
+            </div>
+            <p className="success-text fw-small">
+            Failed <br /> your query.
+            </p>
+            <p className="success-tagline">
+              Please Fill all field properly!!
+            </p>
+          </div>
+        </Modal.Body>  
       </Modal>
     </>
   );
