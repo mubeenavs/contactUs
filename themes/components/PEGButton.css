@@ -1,0 +1,73 @@
+/* Custom Button */
+.custom-btn {
+  border-radius: unset;
+  position: relative;
+  background-color: transparent;
+  min-height: 60px;
+  min-width: 200px;
+  transition: 0.2s all;
+}
+.custom-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+  border: 1px solid #000;
+}
+
+.custom-btn-inner {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -6px;
+  left: -6px;
+  transition: 0.2s all;
+  z-index: 1;
+}
+
+.custom-btn:hover {
+  /* background-color: var(--primary) !important; */
+  border-color: transparent;
+}
+.custom-btn:hover .custom-btn-inner {
+  top: 0;
+  left: 0;
+  /* background-color: var(--primaryHover); */
+  /* border-color: var(--primaryHover); */
+}
+.custom-btn-border {
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transition: all 0.35s;
+  z-index: -1;
+}
+
+.custom-btn:hover .custom-btn-border {
+  top: 0;
+  left: 0;
+  transition: all 0.35s;
+}
+
+@media screen and (max-width: 1280px) {
+  .custom-btn {
+    min-width: 180px;
+  }
+}
